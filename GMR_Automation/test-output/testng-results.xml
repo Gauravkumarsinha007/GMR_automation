@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="116844" started-at="2020-05-21T08:09:13Z" finished-at="2020-05-21T08:11:10Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="116844" started-at="2020-05-21T08:09:13Z" finished-at="2020-05-21T08:11:10Z">
+      <class name="HardCodedSenario.EHS_Observation_Test">
+        <test-method status="PASS" signature="BMTest()[pri:0, instance:HardCodedSenario.EHS_Observation_Test@1e88b3c]" name="BMTest" is-config="true" duration-ms="36802" started-at="2020-05-21T13:39:13Z" finished-at="2020-05-21T13:39:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BMTest -->
+        <test-method status="PASS" signature="EHS_ObserVation_Report_Employee()[pri:0, instance:HardCodedSenario.EHS_Observation_Test@1e88b3c]" name="EHS_ObserVation_Report_Employee" duration-ms="79800" started-at="2020-05-21T13:39:50Z" finished-at="2020-05-21T13:41:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EHS_ObserVation_Report_Employee -->
+        <test-method status="PASS" signature="AMTest()[pri:0, instance:HardCodedSenario.EHS_Observation_Test@1e88b3c]" name="AMTest" is-config="true" duration-ms="206" started-at="2020-05-21T13:41:10Z" finished-at="2020-05-21T13:41:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AMTest -->
+      </class> <!-- HardCodedSenario.EHS_Observation_Test -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
