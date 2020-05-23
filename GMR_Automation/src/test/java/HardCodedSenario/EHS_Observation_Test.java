@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -31,7 +32,7 @@ public class EHS_Observation_Test {
 		  
 	}
 	
-	@Test(priority=1,enabled=true)
+	@Test(priority=1,enabled=false)
 	public void EHS_ObserVation_Report_Employee() throws InterruptedException, AWTException
 	{
 		Robot robot = new Robot();
@@ -44,7 +45,7 @@ public class EHS_Observation_Test {
 		Thread.sleep(1000);
 		//Click on submit
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		Thread.sleep(20000);
+		Thread.sleep(30000);
 		
 		//click on side bar
 		driver.findElement(By.xpath("//a[@class='nav-link toggleMenubar']")).click();
@@ -61,7 +62,7 @@ public class EHS_Observation_Test {
 	
 		//Location/SubLocation 
 		driver.findElement(By.id("txtLocation_value")).sendKeys("Boiler 1-W");
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 		robot.keyPress(KeyEvent.VK_DOWN);
 		Thread.sleep(2000);
@@ -76,7 +77,7 @@ public class EHS_Observation_Test {
 
 		//Responsible Function 
 		driver.findElement(By.id("txtFunction_value")).sendKeys("Boiler Maintenance");
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 		robot.keyPress(KeyEvent.VK_DOWN);
 		Thread.sleep(2000);
@@ -127,16 +128,61 @@ public class EHS_Observation_Test {
 		Thread.sleep(5000);
 		
 		//Submit
-		//driver.findElement(By.xpath("//button[@class='btn btn-success waves-effect w-md waves-light m-b-5']")).click();
+		driver.findElement(By.xpath("//button[@class='btn btn-success waves-effect w-md waves-light m-b-5']")).click();
 		Thread.sleep(10000);
-				
-	
-	
-	
-	
 	
 	}
 	
+	@Test(priority=2,enabled=true)
+	public void EHS_Observation_Review_SectionHead() throws InterruptedException, AWTException
+	{
+		//Enter User name 
+		driver.findElement(By.id("txtUserName")).sendKeys("akash");
+		Thread.sleep(1000);
+		//Enter Password
+		driver.findElement(By.id("txtPassword")).sendKeys("admin");
+		Thread.sleep(1000);
+		//Click on submit
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(20000);
+		
+		//For you Review
+		driver.findElement(By.xpath("//div[contains(@class,'lead-statistics relative two bg-warning')]//i[@class='arrow icofont-arrow-right']")).click();
+		Thread.sleep(30000);
+		//Click on that 
+		driver.findElement(By.partialLinkText("GWEL/SO/2020")).click();
+		Thread.sleep(20000);
+		
+		//New window handle
+		String parentHandle = driver.getWindowHandle(); // get the current window handle
+		
+		for (String winHandle : driver.getWindowHandles()) {
+		    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+		}	
+		//code to do something on new window
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		//scroll down
+		jse.executeScript("scroll(0, 250);");
+		
+		//Authorization Action
+		Select Authorizationaction = new Select(driver.findElement(By.id("ddlAction")));
+		Authorizationaction.selectByVisibleText("Reviewed & completed");
+		Thread.sleep(2000);
+		
+		//Comment
+		driver.findElement(By.id("txtComment")).sendKeys("Test comment");
+		Thread.sleep(2000);
+		
+		
+		//Submit 
+		driver.findElement(By.xpath("//button[@class='btn btn-success waves-effect w-md waves-light m-b-5']")).click();
+		Thread.sleep(10000);
+		
+		driver.close(); // close newly opened window when done with it
+		driver.switchTo().window(parentHandle); // switch back to the original window
+
+
+	}
 	@AfterMethod
 	public void AMTest() throws InterruptedException
 	{
