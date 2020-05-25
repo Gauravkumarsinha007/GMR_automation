@@ -127,6 +127,35 @@ public class EHS_Observation_Test {
 		driver.findElement(By.xpath("//button[@name='btnUploadAll']")).click();
 		Thread.sleep(5000);
 		
+		//Add Action to be Taken
+		driver.findElement(By.xpath("//button[@title='Add Action to be Taken']")).click();
+		Thread.sleep(1000);
+		
+		//Action to be Taken 
+		driver.findElement(By.xpath("//textarea[@name='txtTaskDescription']")).sendKeys("Test task assign");
+		Thread.sleep(1000);
+		
+		//Responsibility 
+		driver.findElement(By.xpath("//input[@name='txtResponsible']")).sendKeys("Gaurav Kumar");
+		Thread.sleep(5000);
+		
+		robot.keyPress(KeyEvent.VK_DOWN);
+		Thread.sleep(2000);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		Thread.sleep(2000);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		Thread.sleep(2000);
+		
+		//Priority
+		Select priority = new Select(driver.findElement(By.xpath("//select[@name='ddlTaskPriority']")));
+		priority.selectByVisibleText("Low");
+		Thread.sleep(1000);
+		
+		//Save CAPA
+		driver.findElement(By.xpath("//button[@title='Save']")).click();
+		Thread.sleep(2000);
+
+		
 		//Submit
 		driver.findElement(By.xpath("//button[@class='btn btn-success waves-effect w-md waves-light m-b-5']")).click();
 		Thread.sleep(10000);
@@ -144,13 +173,13 @@ public class EHS_Observation_Test {
 		Thread.sleep(1000);
 		//Click on submit
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		Thread.sleep(20000);
+		Thread.sleep(60000);
 		
 		//For you Review
 		driver.findElement(By.xpath("//div[contains(@class,'lead-statistics relative two bg-warning')]//i[@class='arrow icofont-arrow-right']")).click();
 		Thread.sleep(30000);
 		//Click on that 
-		driver.findElement(By.partialLinkText("GWEL/SO/2020")).click();
+		driver.findElement(By.partialLinkText("GWEL/SO/2020/")).click();
 		Thread.sleep(20000);
 		
 		//New window handle
@@ -183,10 +212,114 @@ public class EHS_Observation_Test {
 
 
 	}
+	@Test(priority=3,enabled=false)
+	public void EHS_Observation_Review_CAPA_Person() throws InterruptedException, AWTException
+	{
+		//Enter User name 
+		driver.findElement(By.id("txtUserName")).sendKeys("gaurav007");
+		Thread.sleep(1000);
+		//Enter Password
+		driver.findElement(By.id("txtPassword")).sendKeys("admin");
+		Thread.sleep(1000);
+		//Click on submit
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(15000);
+
+		//Click on observation 
+		driver.findElement(By.partialLinkText("Action Item of EHS")).click();
+		Thread.sleep(5000);
+		
+		//New window handle
+		String parentHandle = driver.getWindowHandle(); // get the current window handle
+		
+		for (String winHandle : driver.getWindowHandles()) {
+		    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+		}	
+		//code to do something on new window
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		//scroll down
+		jse.executeScript("scroll(0, 250);");
+		
+		//Authorization Action
+		Select Authorizationaction = new Select(driver.findElement(By.id("ddlAction")));
+		Authorizationaction.selectByVisibleText("Complete (If Review L1 added)");
+		Thread.sleep(2000);
+	
+		//Comment
+		driver.findElement(By.id("txtComment")).sendKeys("Task completed Test comment");
+		Thread.sleep(1000);
+				
+		//Attachments
+		driver.findElement(By.xpath("//input[@type='file']")).sendKeys("C:\\Users\\GAURAV\\workspace\\Vguard_Automation\\Images\\Image.jpg");
+		
+		//click on upload all 
+		driver.findElement(By.xpath("//button[@name='btnUploadAll']")).click();
+		Thread.sleep(4000);
+				
+		//Submit
+		driver.findElement(By.xpath("//button[@class='btn btn-success w-md waves-light m-b-5 ng-binding ng-scope waves-effect']")).click();
+		Thread.sleep(5000);
+		
+		driver.close(); // close newly opened window when done with it
+		driver.switchTo().window(parentHandle); // switch back to the original window
+		
+	}
+	@Test(priority=4,enabled=false)
+	public void EHS_Observation_CAPA_Review_DepartmentHead() throws InterruptedException, AWTException
+	{
+		//Enter User name 
+		driver.findElement(By.id("txtUserName")).sendKeys("akash");
+		Thread.sleep(1000);
+		//Enter Password
+		driver.findElement(By.id("txtPassword")).sendKeys("admin");
+		Thread.sleep(1000);
+		//Click on submit
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(10000);
+		
+		//For you Review
+		driver.findElement(By.xpath("//div[contains(@class,'lead-statistics relative two bg-warning')]//i[@class='arrow icofont-arrow-right']")).click();
+		Thread.sleep(10000);
+		//Click on that 
+		driver.findElement(By.partialLinkText("Action Item of EHS")).click();
+		Thread.sleep(5000);
+						
+		//New window handle
+		String parentHandle = driver.getWindowHandle(); // get the current window handle
+		
+		for (String winHandle : driver.getWindowHandles()) {
+		    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+		}	
+		//code to do something on new window
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		//scroll down
+		jse.executeScript("scroll(0, 250);");
+		
+		//Authorization Action
+		Select Authorizationaction = new Select(driver.findElement(By.id("ddlAction")));
+		Authorizationaction.selectByVisibleText("Approve & Close (If Review L2 not added)");
+		Thread.sleep(2000);
+		
+		//Comment
+		driver.findElement(By.id("txtComment")).sendKeys("Test comment");
+		Thread.sleep(3000);
+			
+		jse.executeScript("scroll(0, 250);");
+		
+		//Submit 
+		driver.findElement(By.xpath("//button[@class='btn btn-success w-md waves-light m-b-5 ng-binding ng-scope waves-effect']")).click();
+		Thread.sleep(5000);
+		
+		driver.close(); // close newly opened window when done with it
+		driver.switchTo().window(parentHandle); // switch back to the original window
+		
+
+	}
+
 	@AfterMethod
 	public void AMTest() throws InterruptedException
 	{
-			driver.close();
+		driver.close();
 		System.out.println("Close browser successfully");
 	}
 	

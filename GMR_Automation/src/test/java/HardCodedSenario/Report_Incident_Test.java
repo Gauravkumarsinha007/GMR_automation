@@ -81,7 +81,7 @@ public class Report_Incident_Test {
 		Thread.sleep(2000);
 		
 		//Location/ Sub-Location 
-		driver.findElement(By.xpath("txtLocation_value")).sendKeys("Boiler 1-W");
+		driver.findElement(By.id("txtLocation_value")).sendKeys("Boiler 1-W");
 		Thread.sleep(5000);
 		
 		robot.keyPress(KeyEvent.VK_DOWN);
@@ -138,7 +138,7 @@ public class Report_Incident_Test {
 				Thread.sleep(10000);
 		
 				//Department
-				driver.findElement(By.xpath("//input[@placeholder='Department']")).sendKeys("Audit Team");
+				driver.findElement(By.xpath("//input[@placeholder='Function']")).sendKeys("Audit Team");
 				Thread.sleep(1000);
 				
 				//Gender 
@@ -171,41 +171,6 @@ public class Report_Incident_Test {
 		//Submit
 		driver.findElement(By.xpath("//button[@class='btn btn-success waves-effect w-md waves-light m-b-5']")).click();
 		Thread.sleep(10000);
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	@AfterMethod
