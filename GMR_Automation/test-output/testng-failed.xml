@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="HardCodedSenario.Report_Incident_Test">
+      <class name="HardCodedSenario.Report_NearMiss_Test">
         <methods>
-          <include name="AMTest"/>
-          <include name="Incident_Review_PlantEHSHead"/>
           <include name="BMTest"/>
+          <include name="AMTest"/>
+          <include name="Report_NearMiss_Employee"/>
         </methods>
-      </class> <!-- HardCodedSenario.Report_Incident_Test -->
+      </class> <!-- HardCodedSenario.Report_NearMiss_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

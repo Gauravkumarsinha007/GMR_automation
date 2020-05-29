@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="208016" started-at="2020-05-27T09:33:21Z" finished-at="2020-05-27T09:36:49Z">
+  <suite name="Default suite" duration-ms="187028" started-at="2020-05-29T07:50:34Z" finished-at="2020-05-29T07:53:41Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="208016" started-at="2020-05-27T09:33:21Z" finished-at="2020-05-27T09:36:49Z">
-      <class name="HardCodedSenario.Report_Incident_Test">
-        <test-method status="PASS" signature="BMTest()[pri:0, instance:HardCodedSenario.Report_Incident_Test@1e88b3c]" name="BMTest" is-config="true" duration-ms="34821" started-at="2020-05-27T15:03:21Z" finished-at="2020-05-27T15:03:56Z">
+    <test name="Default test" duration-ms="187028" started-at="2020-05-29T07:50:34Z" finished-at="2020-05-29T07:53:41Z">
+      <class name="HardCodedSenario.Report_NearMiss_Test">
+        <test-method status="PASS" signature="BMTest()[pri:0, instance:HardCodedSenario.Report_NearMiss_Test@1e88b3c]" name="BMTest" is-config="true" duration-ms="27762" started-at="2020-05-29T13:20:34Z" finished-at="2020-05-29T13:21:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BMTest -->
-        <test-method status="PASS" signature="Incident_Review_operator_Investigation()[pri:0, instance:HardCodedSenario.Report_Incident_Test@1e88b3c]" name="Incident_Review_operator_Investigation" duration-ms="173158" started-at="2020-05-27T15:03:56Z" finished-at="2020-05-27T15:06:49Z">
+        <test-method status="PASS" signature="Incident_Review_operator_Investigation()[pri:0, instance:HardCodedSenario.Report_NearMiss_Test@1e88b3c]" name="Incident_Review_operator_Investigation" duration-ms="153265" started-at="2020-05-29T13:21:01Z" finished-at="2020-05-29T13:23:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Incident_Review_operator_Investigation -->
-        <test-method status="PASS" signature="AMTest()[pri:0, instance:HardCodedSenario.Report_Incident_Test@1e88b3c]" name="AMTest" is-config="true" duration-ms="0" started-at="2020-05-27T15:06:49Z" finished-at="2020-05-27T15:06:49Z">
+        <test-method status="PASS" signature="AMTest()[pri:0, instance:HardCodedSenario.Report_NearMiss_Test@1e88b3c]" name="AMTest" is-config="true" duration-ms="5958" started-at="2020-05-29T13:23:35Z" finished-at="2020-05-29T13:23:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AMTest -->
-      </class> <!-- HardCodedSenario.Report_Incident_Test -->
+      </class> <!-- HardCodedSenario.Report_NearMiss_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

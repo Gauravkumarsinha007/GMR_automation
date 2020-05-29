@@ -13,7 +13,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.thoughtworks.selenium.webdriven.commands.Click;
 
 public class Report_Incident_Test {
 	WebDriver driver;
@@ -31,7 +30,7 @@ public class Report_Incident_Test {
 		  
 	}
 	
-	@Test(priority=1,enabled=false)
+	@Test(priority=1,enabled=true)
 	public void Report_Incident_Employee() throws InterruptedException, AWTException
 	{
 		Robot robot = new Robot();
@@ -175,7 +174,7 @@ public class Report_Incident_Test {
 	}
 	
 
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,enabled=true)
 	public void Incident_Review_HOD() throws InterruptedException, AWTException
 	{
 		//Enter User name 
@@ -229,7 +228,7 @@ public class Report_Incident_Test {
 		
 	}	
 
-	@Test(priority=3,enabled=false)
+	@Test(priority=3,enabled=true)
 	public void Incident_Review_PlantEHSHead() throws InterruptedException, AWTException
 	{
 		//Enter User name 
@@ -305,7 +304,7 @@ public class Report_Incident_Test {
 		
 	}
 	
-	@Test(priority=4,enabled=false)
+	@Test(priority=4,enabled=true)
 	public void Incident_Review_operator_Investigation() throws InterruptedException, AWTException
 	{
 		//Enter User name 
@@ -367,39 +366,6 @@ public class Report_Incident_Test {
 		//scroll down
 		jse.executeScript("scroll(0, 250);");
 
-		//Section D : IMPROVE & CONTROL (Recommendation(s))
-		driver.findElement(By.xpath("//span[contains(text(),'Section F : IMPROVE & CONTROL (Recommendation(s))')]")).click();
-		Thread.sleep(1000);
-		
-		//Add Action to be Taken
-		driver.findElement(By.xpath("//button[@id='btnAddCAPA300']")).click();
-		Thread.sleep(1000);
-		
-		//Action to be taken 
-		driver.findElement(By.xpath("//textarea[@name='txtTaskDescription']")).sendKeys("Near Miss capa Test");
-		Thread.sleep(1000);
-		
-		//Responsibility 
-		driver.findElement(By.xpath("//input[@name='txtResponsible']")).sendKeys("Gaurav Kumar");
-		Thread.sleep(2000);
-		
-		Robot robot = new Robot();
-		robot.keyPress(KeyEvent.VK_DOWN);
-		Thread.sleep(2000);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		Thread.sleep(2000);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		Thread.sleep(2000);
-		
-		//Priority
-		Select priority = new Select(driver.findElement(By.xpath("//select[@name='ddlTaskPriority']")));
-		priority.selectByVisibleText("Low");
-		Thread.sleep(1000);
-		
-		//Save CAPA
-		driver.findElement(By.xpath("//button[@class='btn btn-icon btn-success btn-xs waves-effect waves-light m-r-5 save-btn']")).click();
-		Thread.sleep(2000);
-	
 		//Authorization Action
 		Select Authorizationaction = new Select(driver.findElement(By.id("ddlAction")));
 		Authorizationaction.selectByVisibleText("Investigation completed & send for EHS Head review");
@@ -420,12 +386,223 @@ public class Report_Incident_Test {
 		driver.switchTo().window(parentHandle); // switch back to the original window
 
 	}
+	
+	@Test(priority=5,enabled=true)
+	public void Incident_Invstegation_Review_PlantEHSHead() throws InterruptedException, AWTException
+	{
+		//Enter User name 
+		driver.findElement(By.id("txtUserName")).sendKeys("mahesh");
+		Thread.sleep(1000);
+		//Enter Password
+		driver.findElement(By.id("txtPassword")).sendKeys("admin");
+		Thread.sleep(8000);
+		//Click on submit
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(60000);
+		
+		//For you Review
+		driver.findElement(By.xpath("//div[contains(@class,'lead-statistics relative two bg-warning')]//i[@class='arrow icofont-arrow-right']")).click();
+		Thread.sleep(30000);
+		//Click on that 
+		driver.findElement(By.partialLinkText("GWEL/INC/2020")).click();
+		Thread.sleep(20000);
+						
+		//New window handle
+		String parentHandle = driver.getWindowHandle(); // get the current window handle
+		
+		for (String winHandle : driver.getWindowHandles()) {
+		    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+		}	
+		
+		driver.navigate().refresh();
+		Thread.sleep(15000);
+	
+		//code to do something on new window
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		
+		//Click on Investigation 
+		driver.findElement(By.xpath("//a[@class='st_tab']")).click();
+		Thread.sleep(15000);
+				
+				
+				//scroll down
+				jse.executeScript("scroll(0, 250);");
+					
+		//Authorization Action
+		Select Authorizationaction = new Select(driver.findElement(By.id("ddlAction")));
+		Authorizationaction.selectByVisibleText("Send for O&M Review");
+		Thread.sleep(2000);
+		
+		//Comment
+		driver.findElement(By.id("txtComment")).sendKeys("Send for O&M Review");
+		Thread.sleep(1000);
+				
+		//Submit 
+		driver.findElement(By.xpath("//button[@class='btn btn-success waves-effect w-md waves-light m-b-5']")).click();
+		Thread.sleep(5000);
+		
+		driver.close(); // close newly opened window when done with it
+		driver.switchTo().window(parentHandle); // switch back to the original window
+		
+	}
 
+	
+	@Test(priority=6,enabled=true)
+	public void Incident_Invstegation_Review_O_M_Head() throws InterruptedException, AWTException
+	{
+		//Enter User name 
+		driver.findElement(By.id("txtUserName")).sendKeys("ravi");
+		Thread.sleep(1000);
+		//Enter Password
+		driver.findElement(By.id("txtPassword")).sendKeys("admin");
+		Thread.sleep(1000);
+		//Click on submit
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(60000);
+		
+		//For you Review
+		driver.findElement(By.xpath("//div[contains(@class,'lead-statistics relative two bg-warning')]//i[@class='arrow icofont-arrow-right']")).click();
+		Thread.sleep(30000);
+		//Click on that 
+		driver.findElement(By.partialLinkText("GWEL/INC/2020")).click();
+		Thread.sleep(25000);
+						
+		//New window handle
+		String parentHandle = driver.getWindowHandle(); // get the current window handle
+		
+		for (String winHandle : driver.getWindowHandles()) {
+		    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+		}	
+		
+		driver.navigate().refresh();
+		Thread.sleep(15000);
+	
+		//code to do something on new window
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		//Click on Investigation 
+		driver.findElement(By.xpath("//a[@class='st_tab']")).click();
+		Thread.sleep(15000);
+					
+		//scroll down
+		jse.executeScript("scroll(0, 250);");
+	
+		//Authorization Action
+		Select Authorizationaction = new Select(driver.findElement(By.id("ddlAction")));
+		Authorizationaction.selectByVisibleText("Send for Plant Head review");
+		Thread.sleep(5000);
+		
+		//Comment
+		driver.findElement(By.id("txtComment")).sendKeys("Send for Plant Head review");
+		Thread.sleep(3000);
+				
+		//Submit 
+		driver.findElement(By.xpath("//button[@class='btn btn-success waves-effect w-md waves-light m-b-5']")).click();
+		Thread.sleep(5000);
+		
+		driver.close(); // close newly opened window when done with it
+		driver.switchTo().window(parentHandle); // switch back to the original window
+		
+	}
+
+
+	@Test(priority=7,enabled=true)
+	public void Incident_Invstegation_Review_Plant_HEAD() throws InterruptedException, AWTException
+	{
+		//Enter User name 
+		driver.findElement(By.id("txtUserName")).sendKeys("ankur");
+		Thread.sleep(1000);
+		//Enter Password
+		driver.findElement(By.id("txtPassword")).sendKeys("admin");
+		Thread.sleep(1000);
+		//Click on submit
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		Thread.sleep(60000);
+		
+		//For you Review
+		driver.findElement(By.xpath("//div[contains(@class,'lead-statistics relative two bg-warning')]//i[@class='arrow icofont-arrow-right']")).click();
+		Thread.sleep(30000);
+		//Click on that 
+		driver.findElement(By.partialLinkText("GWEL/INC/2020")).click();
+		Thread.sleep(20000);
+						
+		//New window handle
+		String parentHandle = driver.getWindowHandle(); // get the current window handle
+		
+		for (String winHandle : driver.getWindowHandles()) {
+		    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+		}	
+		driver.navigate().refresh();
+		Thread.sleep(15000);
+	
+		//code to do something on new window
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+		//Click on Investigation 
+		driver.findElement(By.xpath("//a[@class='st_tab']")).click();
+		Thread.sleep(15000);
+					
+		//scroll down
+		jse.executeScript("scroll(0, 250);");
+	
+			//Section F : IMPROVE & CONTROL (Recommendation(s))
+			driver.findElement(By.xpath("//span[contains(text(),'Section F : IMPROVE & CONTROL (Recommendation(s))')]")).click();
+			Thread.sleep(1000);
+			
+			//Add Action to be Taken
+			driver.findElement(By.xpath("//button[@id='btnAddCAPA300']")).click();
+			Thread.sleep(1000);
+			
+			//Action to be taken 
+			driver.findElement(By.xpath("//textarea[@name='txtTaskDescription']")).sendKeys("capa Test");
+			Thread.sleep(1000);
+			
+			//Responsibility 
+			driver.findElement(By.xpath("//input[@name='txtResponsible']")).sendKeys("Gaurav Kumar");
+			Thread.sleep(2000);
+			
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_DOWN);
+			Thread.sleep(2000);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			Thread.sleep(2000);
+			robot.keyRelease(KeyEvent.VK_TAB);
+			Thread.sleep(5000);
+			
+			//Priority
+			Select priority = new Select(driver.findElement(By.xpath("//select[@name='ddlTaskPriority']")));
+			priority.selectByVisibleText("Low");
+			Thread.sleep(5000);
+			
+			//Save CAPA
+			driver.findElement(By.xpath("//button[@ng-click='SaveCapa(frmAddTask,taskToAdd,taskToAdd.responsibleAdd,reviewerAdd,addOptions,txtResponsibleId,txtReviewerId);']")).click();
+			Thread.sleep(10000);
+
+			//scroll down
+			jse.executeScript("scroll(0, 250);");
+		
+		//Authorization Action
+		Select Authorizationaction = new Select(driver.findElement(By.id("ddlAction")));
+		Authorizationaction.selectByVisibleText("Completed");
+		Thread.sleep(2000);
+		
+		//Comment
+		driver.findElement(By.id("txtComment")).sendKeys("Completed");
+		Thread.sleep(1000);
+				
+		//Submit 
+		driver.findElement(By.xpath("//button[@class='btn btn-success waves-effect w-md waves-light m-b-5']")).click();
+		Thread.sleep(5000);
+		
+		driver.close(); // close newly opened window when done with it
+		driver.switchTo().window(parentHandle); // switch back to the original window
+		
+	}
 	
 	@AfterMethod
 	public void AMTest() throws InterruptedException
 	{
-		//driver.quit();
+		driver.quit();
 		System.out.println("Close browser successfully");
 	}
 	
