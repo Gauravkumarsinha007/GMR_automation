@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="HardCodedSenario.Report_NearMiss_Test">
+      <class name="HardCodedSenario.Schedule_Meeting_Test">
         <methods>
           <include name="BMTest"/>
+          <include name="Meeting_Completed"/>
           <include name="AMTest"/>
-          <include name="Report_NearMiss_Employee"/>
         </methods>
-      </class> <!-- HardCodedSenario.Report_NearMiss_Test -->
+      </class> <!-- HardCodedSenario.Schedule_Meeting_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
