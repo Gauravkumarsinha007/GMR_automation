@@ -142,10 +142,6 @@ public class Schedule_Meeting_Test {
 		//Submit
 		driver.findElement(By.xpath("//button[@class='btn btn-success waves-effect w-md waves-light m-b-5']")).click();
 		Thread.sleep(10000);
-
-			
-	
-	
 	}
 
 	
