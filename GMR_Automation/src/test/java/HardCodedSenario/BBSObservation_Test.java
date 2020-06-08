@@ -106,7 +106,7 @@ public class BBSObservation_Test {
 		driver.findElement(By.xpath("//body[@id='LayoutBody']//div[@class='col-md-12']//div[@class='col-md-12']//tr[1]//td[3]//div[1]")).click();
 		Thread.sleep(2000);
 		
-		//Barrier for At-Risk Behaviour
+		//Barrier for At-Risk Behavior
 		Select Behaviour = new Select(driver.findElement(By.xpath("//select[@name='ddlBarrierforAtRiskBehaviour01']")));
 		Behaviour.selectByVisibleText("Accepted culture or Peer Pressure");
 		Thread.sleep(2000);

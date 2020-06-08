@@ -58,11 +58,11 @@ public class EHS_Observation_Test {
 		
 		//Report EHS Observation 
 		driver.findElement(By.xpath("//span[text()='Report EHS Observation']")).click();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 	
 		//Location/SubLocation 
 		driver.findElement(By.id("txtLocation_value")).sendKeys("Boiler 1-W");
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 		
 		robot.keyPress(KeyEvent.VK_DOWN);
 		Thread.sleep(2000);
@@ -77,7 +77,7 @@ public class EHS_Observation_Test {
 
 		//Responsible Function 
 		driver.findElement(By.id("txtFunction_value")).sendKeys("Boiler Maintenance");
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 		
 		robot.keyPress(KeyEvent.VK_DOWN);
 		Thread.sleep(2000);
@@ -116,28 +116,28 @@ public class EHS_Observation_Test {
 		//Attachments
 		driver.findElement(By.xpath("//input[@type='file']")).sendKeys("C:\\Users\\GAURAV\\workspace\\GMR_Automation\\Images\\Image.jpg");
 		driver.findElement(By.xpath("//input[@type='file']")).sendKeys("C:\\Users\\GAURAV\\workspace\\GMR_Automation\\Images\\CeilingFan.jpg");
-		driver.findElement(By.xpath("//input[@type='file']")).sendKeys("C:\\Users\\GAURAV\\workspace\\GMR_Automation\\Images\\Electric panel room.jpg");
-		driver.findElement(By.xpath("//input[@type='file']")).sendKeys("C:\\Users\\GAURAV\\workspace\\GMR_Automation\\Images\\unsafe.jpg");
+		//driver.findElement(By.xpath("//input[@type='file']")).sendKeys("C:\\Users\\GAURAV\\workspace\\GMR_Automation\\Images\\Electric panel room.jpg");
+		//driver.findElement(By.xpath("//input[@type='file']")).sendKeys("C:\\Users\\GAURAV\\workspace\\GMR_Automation\\Images\\unsafe.jpg");
 
 		//click on single upload 
 		driver.findElement(By.xpath("//tr[1]//td[6]//button[1]//i[1]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		
 		//click on upload all 
 		driver.findElement(By.xpath("//button[@name='btnUploadAll']")).click();
-		Thread.sleep(5000);
+		Thread.sleep(20000);
 		
 		//Add Action to be Taken
 		driver.findElement(By.xpath("//button[@title='Add Action to be Taken']")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Action to be Taken 
 		driver.findElement(By.xpath("//textarea[@name='txtTaskDescription']")).sendKeys("Test task assign");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Responsibility 
 		driver.findElement(By.xpath("//input[@name='txtResponsible']")).sendKeys("Gaurav Kumar");
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		
 		robot.keyPress(KeyEvent.VK_DOWN);
 		Thread.sleep(2000);
@@ -149,11 +149,11 @@ public class EHS_Observation_Test {
 		//Priority
 		Select priority = new Select(driver.findElement(By.xpath("//select[@name='ddlTaskPriority']")));
 		priority.selectByVisibleText("Low");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Save CAPA
 		driver.findElement(By.xpath("//button[@title='Save']")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		
 		//Submit
@@ -162,7 +162,7 @@ public class EHS_Observation_Test {
 	
 	}
 	
-	@Test(priority=2,enabled=true)
+	@Test(priority=2,enabled=false)
 	public void EHS_Observation_Review_SectionHead() throws InterruptedException, AWTException
 	{
 		//Enter User name 
@@ -212,15 +212,18 @@ public class EHS_Observation_Test {
 
 
 	}
+	
 	@Test(priority=3,enabled=false)
 	public void EHS_Observation_Review_CAPA_Person() throws InterruptedException, AWTException
 	{
 		//Enter User name 
 		driver.findElement(By.id("txtUserName")).sendKeys("gaurav007");
 		Thread.sleep(1000);
+	
 		//Enter Password
 		driver.findElement(By.id("txtPassword")).sendKeys("admin");
 		Thread.sleep(1000);
+		
 		//Click on submit
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		Thread.sleep(15000);
@@ -319,7 +322,7 @@ public class EHS_Observation_Test {
 	@AfterMethod
 	public void AMTest() throws InterruptedException
 	{
-		driver.close();
+		driver.quit();
 		System.out.println("Close browser successfully");
 	}
 	
