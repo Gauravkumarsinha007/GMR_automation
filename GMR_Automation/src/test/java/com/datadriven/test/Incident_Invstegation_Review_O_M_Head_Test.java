@@ -14,9 +14,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.test.utility.NearMiss_Util;
+import com.test.utility.Incident_Util;
 
-public class NearMiss_Review_InvestigationTeam_Test {
+public class Incident_Invstegation_Review_O_M_Head_Test {
+
 	WebDriver driver;
 	
 	@BeforeMethod
@@ -35,82 +36,68 @@ public class NearMiss_Review_InvestigationTeam_Test {
 	public Iterator<Object[]> GetTestData()
 	{
 		
-		ArrayList<Object[]>testdata=NearMiss_Util.GetDataFromExcel();
+		ArrayList<Object[]>testdata=Incident_Util.GetDataFromExcel();
 		return testdata.iterator();
 		
 		
 	}
 	
 	@Test(dataProvider="GetTestData",enabled=true)
-	public void NearMiss_Review_InvestigationTeam(String UserName,String Password,String Function,String Agency,String SubLocation,String ExactLocation,String Severity,String Descriptionofwhathappened,String ImmediateContainmentAction,
-			String Attachments1,String Attachments2,String Attachments3,String Attachments4,String PlantEHSHeadUsername,String PlantEHSHeadPassword,String Clickonthat,String AuthorizationAction,
-			String Comment,String searchemployeename,String InvestigationTeamUsername,String InvestigationTeamPassword,String InvestigationTeamAuthorizationAction,String InvestigationTeamComment,
-			String PlantEHSHeadAuthorizationaction,String PlantEHSHeadComment,String ReviewOMHeadUsername,String ReviewOMHeadPassword,String ReviewOMHeadAuthorizationAction,
-			String ReviewOMHeadComment,String PlantHEADUsername,String PlantHEADPassword,String PlantHEADAuthorizationaction,String PlantHEADComment) throws InterruptedException, AWTException
+	public void Incident_Invstegation_Review_O_M_Head(String Username,String Password,String Function,String Agency,String SubLocation,String Shift,String ExactLocation,String Descriptionofwhathappened,
+			String ImmediateContainmentAction,String Employee,String Name,String Age,String DepartmentOP,String Gender,String Attachments1,String Attachments2,String Attachments3,
+			String Attachments4,String HODUsername,String HODPassword,String Clickonthat,String AuthorizationAction,String Comment,String PlantEHSHeadUsername,String PlantEHSHeadPassword,
+			String AuthorizationActionPlantEHSHead,String CommentPlantEHSHead,String searchemployee,String InvestigationTeamUsername,String InvestigationTeamPassword,String TypeofInjury,
+			String NatureofInjury,String AuthorizationActionInvestigationTeam,String CommentInvestigationTeam,String PlantEHSHUsername,String PlantEHSHPassword,String AuthorizationActionPlantEHSH,
+			String CommentPlantEHSH,String InvstegationOMHeadUsername,String InvstegationOMHeadPassword,String AuthorizationActionInvstegationOMHead,String InvstegationOMHeadComment,
+			String InvstegationPlantHEADUsername,String InvstegationPlantHEADPassword,String Actiontobetaken,String Responsibility,String Priority,String AuthorizationActionInvstegationPlantHEAD,
+			String InvstegationPlantHEADComment) throws InterruptedException, AWTException
 	{
 		//Enter User name 
-		driver.findElement(By.id("txtUserName")).sendKeys(InvestigationTeamUsername);
+		driver.findElement(By.id("txtUserName")).sendKeys(InvstegationOMHeadUsername);
 		Thread.sleep(1000);
 		//Enter Password
-		driver.findElement(By.id("txtPassword")).sendKeys(InvestigationTeamPassword);
+		driver.findElement(By.id("txtPassword")).sendKeys(InvstegationOMHeadPassword);
 		Thread.sleep(1000);
 		//Click on submit
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		Thread.sleep(60000);
-	
+		
+		//For you Review
+		driver.findElement(By.xpath("//div[contains(@class,'lead-statistics relative two bg-warning')]//i[@class='arrow icofont-arrow-right']")).click();
+		Thread.sleep(30000);
 		//Click on that 
 		driver.findElement(By.partialLinkText(Clickonthat)).click();
-		Thread.sleep(30000);
-
-		
+		Thread.sleep(25000);
+						
 		//New window handle
 		String parentHandle = driver.getWindowHandle(); // get the current window handle
 		
 		for (String winHandle : driver.getWindowHandles()) {
-		driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+		    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
 		}	
-
+		
 		driver.navigate().refresh();
 		Thread.sleep(15000);
-		
+	
 		//code to do something on new window
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		
+
 		//Click on Investigation 
 		driver.findElement(By.xpath("//a[@class='st_tab']")).click();
-		Thread.sleep(15000);
-		
+		Thread.sleep(40000);
+					
 		//scroll down
 		jse.executeScript("scroll(0, 250);");
-		Thread.sleep(8000);
-
-		//Section B : Investigation
-		driver.findElement(By.xpath("//span[contains(text(),'Section B : Investigation')]")).click();
-		Thread.sleep(3000);
-		
-		//Sequential occurrence
-		driver.findElement(By.xpath("//textarea[@placeholder='Provide chain of event happend before the incident happens']")).sendKeys("Test Sequential occurrence");
-		Thread.sleep(2000);
-		
-		//Activity of the person(s) /injured at the time of the incident
-		driver.findElement(By.xpath("//textarea[@placeholder='Provide details of activity going on at incident time at surrounding location of incident']")).sendKeys("Test Activity of the person");
-		Thread.sleep(2000);
-		
-		//scroll down
-		jse.executeScript("scroll(0, 250);");
-
+	
 		//Authorization Action
 		Select Authorizationaction = new Select(driver.findElement(By.id("ddlAction")));
-		Authorizationaction.selectByVisibleText(InvestigationTeamAuthorizationAction);
-		Thread.sleep(2000);
+		Authorizationaction.selectByVisibleText(AuthorizationActionInvstegationOMHead);
+		Thread.sleep(5000);
 		
 		//Comment
-		driver.findElement(By.id("txtComment")).sendKeys(InvestigationTeamComment);
-		Thread.sleep(1000);
-			
-		//scroll down
-		jse.executeScript("scroll(0, 250);");
-		
+		driver.findElement(By.id("txtComment")).sendKeys(InvstegationOMHeadComment);
+		Thread.sleep(3000);
+				
 		//Submit 
 		driver.findElement(By.xpath("//button[@class='btn btn-success waves-effect w-md waves-light m-b-5']")).click();
 		Thread.sleep(5000);
