@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- @author : Gaurav Kumar -->
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="5" parallel="tests" name="GMR Web application Test Automation Test suite">
+  <test name="GMR Web application Test : Incident with proper flow" preserve-order= "true">
+    <classes>
+<!--       <class name="com.datadriven.test.Report_Incident_Employee_Test"/> -->
+<!--       <class name="com.datadriven.test.Incident_Review_HOD_Test"/> -->
+<!--       <class name="com.datadriven.test.Incident_Review_PlantEHSHead_Test"/> -->
+<!--       <class name="com.datadriven.test.Incident_Review_Investigation_Team_Test"/> -->
+<!--       <class name="com.datadriven.test.Incident_Invstegation_Review_PlantEHSHead_Test"/> -->
+<!--       <class name="com.datadriven.test.Incident_Invstegation_Review_O_M_Head_Test"/> -->
+      <class name="com.datadriven.test.Incident_Invstegation_Review_Plant_HEAD_Test"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

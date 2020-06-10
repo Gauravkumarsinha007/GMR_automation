@@ -14,9 +14,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.test.utility.NearMiss_Util;
+import com.test.utility.Incident_Util;
 
-public class NearMiss_Review_InvestigationTeam_Test {
+public class Incident_Review_Investigation_Team_Test {
+
+
 	WebDriver driver;
 	
 	@BeforeMethod
@@ -35,18 +37,21 @@ public class NearMiss_Review_InvestigationTeam_Test {
 	public Iterator<Object[]> GetTestData()
 	{
 		
-		ArrayList<Object[]>testdata=NearMiss_Util.GetDataFromExcel();
+		ArrayList<Object[]>testdata=Incident_Util.GetDataFromExcel();
 		return testdata.iterator();
 		
 		
 	}
 	
 	@Test(dataProvider="GetTestData",enabled=true)
-	public void NearMiss_Review_InvestigationTeam(String UserName,String Password,String Function,String Agency,String SubLocation,String ExactLocation,String Severity,String Descriptionofwhathappened,String ImmediateContainmentAction,
-			String Attachments1,String Attachments2,String Attachments3,String Attachments4,String PlantEHSHeadUsername,String PlantEHSHeadPassword,String Clickonthat,String AuthorizationAction,
-			String Comment,String searchemployeename,String InvestigationTeamUsername,String InvestigationTeamPassword,String InvestigationTeamAuthorizationAction,String InvestigationTeamComment,
-			String PlantEHSHeadAuthorizationaction,String PlantEHSHeadComment,String ReviewOMHeadUsername,String ReviewOMHeadPassword,String ReviewOMHeadAuthorizationAction,
-			String ReviewOMHeadComment,String PlantHEADUsername,String PlantHEADPassword,String PlantHEADAuthorizationaction,String PlantHEADComment) throws InterruptedException, AWTException
+	public void Incident_Review_Investigation_Team(String Username,String Password,String Function,String Agency,String SubLocation,String Shift,String ExactLocation,String Descriptionofwhathappened,
+			String ImmediateContainmentAction,String Employee,String Name,String Age,String DepartmentOP,String Gender,String Attachments1,String Attachments2,String Attachments3,
+			String Attachments4,String HODUsername,String HODPassword,String Clickonthat,String AuthorizationAction,String Comment,String PlantEHSHeadUsername,String PlantEHSHeadPassword,
+			String AuthorizationActionPlantEHSHead,String CommentPlantEHSHead,String searchemployee,String InvestigationTeamUsername,String InvestigationTeamPassword,String TypeofInjury,
+			String NatureofInjury,String AuthorizationActionInvestigationTeam,String CommentInvestigationTeam,String PlantEHSHUsername,String PlantEHSHPassword,String AuthorizationActionPlantEHSH,
+			String CommentPlantEHSH,String InvstegationOMHeadUsername,String InvstegationOMHeadPassword,String AuthorizationActionInvstegationOMHead,String InvstegationOMHeadComment,
+			String InvstegationPlantHEADUsername,String InvstegationPlantHEADPassword,String Actiontobetaken,String Responsibility,String Priority,String AuthorizationActionInvstegationPlantHEAD,
+			String InvstegationPlantHEADComment) throws InterruptedException, AWTException
 	{
 		//Enter User name 
 		driver.findElement(By.id("txtUserName")).sendKeys(InvestigationTeamUsername);
@@ -83,29 +88,37 @@ public class NearMiss_Review_InvestigationTeam_Test {
 		//scroll down
 		jse.executeScript("scroll(0, 250);");
 		Thread.sleep(8000);
-
-		//Section B : Investigation
-		driver.findElement(By.xpath("//span[contains(text(),'Section B : Investigation')]")).click();
+		//Injured Person Details
+		driver.findElement(By.xpath("//span[contains(text(),'Injured Person Details')]")).click();
 		Thread.sleep(3000);
-		
-		//Sequential occurrence
-		driver.findElement(By.xpath("//textarea[@placeholder='Provide chain of event happend before the incident happens']")).sendKeys("Test Sequential occurrence");
+		jse.executeScript("scroll(0, 250);");
 		Thread.sleep(2000);
 		
-		//Activity of the person(s) /injured at the time of the incident
-		driver.findElement(By.xpath("//textarea[@placeholder='Provide details of activity going on at incident time at surrounding location of incident']")).sendKeys("Test Activity of the person");
+		//Type of Injury
+		Select TypeofInjury1 = new Select(driver.findElement(By.id("ddlIncidentType0")));
+		TypeofInjury1.selectByVisibleText(TypeofInjury);
 		Thread.sleep(2000);
+		
+		//injury Details
+		//Nature of Injury 
+		Select NatureofInjury1 =new Select(driver.findElement(By.xpath("//select[@name='ddlNatureOfInjury0']")));
+		NatureofInjury1.selectByVisibleText(NatureofInjury);
+		Thread.sleep(2000);
+		
+		//Body Part 
+		driver.findElement(By.xpath("//label[contains(text(),'Chest')]")).click();
+		Thread.sleep(1000);
 		
 		//scroll down
 		jse.executeScript("scroll(0, 250);");
 
 		//Authorization Action
 		Select Authorizationaction = new Select(driver.findElement(By.id("ddlAction")));
-		Authorizationaction.selectByVisibleText(InvestigationTeamAuthorizationAction);
+		Authorizationaction.selectByVisibleText(AuthorizationActionInvestigationTeam);
 		Thread.sleep(2000);
 		
 		//Comment
-		driver.findElement(By.id("txtComment")).sendKeys(InvestigationTeamComment);
+		driver.findElement(By.id("txtComment")).sendKeys(CommentInvestigationTeam);
 		Thread.sleep(1000);
 			
 		//scroll down
@@ -118,6 +131,7 @@ public class NearMiss_Review_InvestigationTeam_Test {
 		driver.close(); // close newly opened window when done with it
 		driver.switchTo().window(parentHandle); // switch back to the original window
 
+
 	}
 	@AfterMethod
 	public void AMTest() throws InterruptedException
@@ -125,4 +139,5 @@ public class NearMiss_Review_InvestigationTeam_Test {
 		driver.quit();
 		System.out.println("Close browser successfully");
 	}
+
 }

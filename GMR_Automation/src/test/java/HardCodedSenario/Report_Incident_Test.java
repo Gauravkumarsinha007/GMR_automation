@@ -27,7 +27,6 @@ public class Report_Incident_Test {
 		driver.manage().deleteAllCookies();
 		driver.get("https://gmrehsonlineuat.azurewebsites.net/Account/Login");
 		Thread.sleep(10000);
-		  
 	}
 	
 	@Test(priority=1,enabled=true)
@@ -305,7 +304,7 @@ public class Report_Incident_Test {
 	}
 	
 	@Test(priority=4,enabled=true)
-	public void Incident_Review_operator_Investigation() throws InterruptedException, AWTException
+	public void Incident_Review_Investigation_Team() throws InterruptedException, AWTException
 	{
 		//Enter User name 
 		driver.findElement(By.id("txtUserName")).sendKeys("gaurav007");
