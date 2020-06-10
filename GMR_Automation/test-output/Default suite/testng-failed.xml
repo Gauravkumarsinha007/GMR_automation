@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="HardCodedSenario.Schedule_Meeting_Test">
+      <class name="com.datadriven.test.NearMiss_Invstegation_Review_Plant_HEAD_Test">
         <methods>
-          <include name="BMTest"/>
-          <include name="Meeting_Completed"/>
           <include name="AMTest"/>
+          <include name="NearMiss_Invstegation_Review_Plant_HEAD" invocation-numbers="0"/>
+          <include name="BMTest"/>
         </methods>
-      </class> <!-- HardCodedSenario.Schedule_Meeting_Test -->
+      </class> <!-- com.datadriven.test.NearMiss_Invstegation_Review_Plant_HEAD_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

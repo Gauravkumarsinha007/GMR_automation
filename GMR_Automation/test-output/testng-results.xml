@@ -2,24 +2,271 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="154451" started-at="2020-06-01T08:11:48Z" finished-at="2020-06-01T08:14:23Z">
+  <suite name="GMR Web application Test Automation Test suite" duration-ms="243110" started-at="2020-06-10T12:58:19Z" finished-at="2020-06-10T13:02:22Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="154451" started-at="2020-06-01T08:11:48Z" finished-at="2020-06-01T08:14:23Z">
-      <class name="HardCodedSenario.Schedule_Meeting_Test">
-        <test-method status="PASS" signature="BMTest()[pri:0, instance:HardCodedSenario.Schedule_Meeting_Test@1e88b3c]" name="BMTest" is-config="true" duration-ms="30278" started-at="2020-06-01T13:41:48Z" finished-at="2020-06-01T13:42:19Z">
+    <test name="GMR Web application Test : Incident with proper flow" duration-ms="243110" started-at="2020-06-10T12:58:19Z" finished-at="2020-06-10T13:02:22Z">
+      <class name="com.datadriven.test.Incident_Invstegation_Review_Plant_HEAD_Test">
+        <test-method status="PASS" signature="BMTest()[pri:0, instance:com.datadriven.test.Incident_Invstegation_Review_Plant_HEAD_Test@1fdc050]" name="BMTest" is-config="true" duration-ms="25923" started-at="2020-06-10T18:28:21Z" finished-at="2020-06-10T18:28:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BMTest -->
-        <test-method status="PASS" signature="Meeting_Completed()[pri:0, instance:HardCodedSenario.Schedule_Meeting_Test@1e88b3c]" name="Meeting_Completed" duration-ms="124097" started-at="2020-06-01T13:42:19Z" finished-at="2020-06-01T13:44:23Z">
+        <test-method status="PASS" signature="Incident_Invstegation_Review_Plant_HEAD(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.datadriven.test.Incident_Invstegation_Review_Plant_HEAD_Test@1fdc050]" name="Incident_Invstegation_Review_Plant_HEAD" duration-ms="209450" started-at="2020-06-10T18:28:47Z" data-provider="GetTestData" finished-at="2020-06-10T18:32:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[gaurav007]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Boiler Maintenance]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[SV Logistics]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Boiler 1-W]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[B Shift- 14:00 to 22:00]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Surat]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Test Desc for AT ]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[Tets Action Now]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Visitor]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Rahul Singh]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[35]]>
+              </value>
+            </param>
+            <param index="12">
+              <value>
+                <![CDATA[Audit Team]]>
+              </value>
+            </param>
+            <param index="13">
+              <value>
+                <![CDATA[Female]]>
+              </value>
+            </param>
+            <param index="14">
+              <value>
+                <![CDATA[C:\\Users\\GAURAV\\workspace\\Vguard_Automation\\Images\\Image.jpg]]>
+              </value>
+            </param>
+            <param index="15">
+              <value>
+                <![CDATA[C:\\Users\\GAURAV\\workspace\\Vguard_Automation\\Images\\CeilingFan.jpg]]>
+              </value>
+            </param>
+            <param index="16">
+              <value>
+                <![CDATA[C:\\Users\\GAURAV\\workspace\\Vguard_Automation\\Images\\Electric panel room.jpg]]>
+              </value>
+            </param>
+            <param index="17">
+              <value>
+                <![CDATA[C:\\Users\\GAURAV\\workspace\\Vguard_Automation\\Images\\unsafe.jpg]]>
+              </value>
+            </param>
+            <param index="18">
+              <value>
+                <![CDATA[mathew]]>
+              </value>
+            </param>
+            <param index="19">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="20">
+              <value>
+                <![CDATA[GWEL/INC/2020]]>
+              </value>
+            </param>
+            <param index="21">
+              <value>
+                <![CDATA[Send for futher review]]>
+              </value>
+            </param>
+            <param index="22">
+              <value>
+                <![CDATA[Send for futher review]]>
+              </value>
+            </param>
+            <param index="23">
+              <value>
+                <![CDATA[mahesh]]>
+              </value>
+            </param>
+            <param index="24">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="25">
+              <value>
+                <![CDATA[Send For Investigation]]>
+              </value>
+            </param>
+            <param index="26">
+              <value>
+                <![CDATA[Send For Investigation]]>
+              </value>
+            </param>
+            <param index="27">
+              <value>
+                <![CDATA[Gaurav Kumar]]>
+              </value>
+            </param>
+            <param index="28">
+              <value>
+                <![CDATA[gaurav007]]>
+              </value>
+            </param>
+            <param index="29">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="30">
+              <value>
+                <![CDATA[First Aid Case]]>
+              </value>
+            </param>
+            <param index="31">
+              <value>
+                <![CDATA[Concussions]]>
+              </value>
+            </param>
+            <param index="32">
+              <value>
+                <![CDATA[Investigation completed & send for EHS Head review]]>
+              </value>
+            </param>
+            <param index="33">
+              <value>
+                <![CDATA[Investigation completed & send for EHS Head review]]>
+              </value>
+            </param>
+            <param index="34">
+              <value>
+                <![CDATA[mahesh]]>
+              </value>
+            </param>
+            <param index="35">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="36">
+              <value>
+                <![CDATA[Send for O&M Review]]>
+              </value>
+            </param>
+            <param index="37">
+              <value>
+                <![CDATA[Send for O&M Review]]>
+              </value>
+            </param>
+            <param index="38">
+              <value>
+                <![CDATA[ravi]]>
+              </value>
+            </param>
+            <param index="39">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="40">
+              <value>
+                <![CDATA[Send for Plant Head review]]>
+              </value>
+            </param>
+            <param index="41">
+              <value>
+                <![CDATA[Send for Plant Head review]]>
+              </value>
+            </param>
+            <param index="42">
+              <value>
+                <![CDATA[ankur]]>
+              </value>
+            </param>
+            <param index="43">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="44">
+              <value>
+                <![CDATA[capa Test]]>
+              </value>
+            </param>
+            <param index="45">
+              <value>
+                <![CDATA[Gaurav Kumar]]>
+              </value>
+            </param>
+            <param index="46">
+              <value>
+                <![CDATA[Low]]>
+              </value>
+            </param>
+            <param index="47">
+              <value>
+                <![CDATA[Completed]]>
+              </value>
+            </param>
+            <param index="48">
+              <value>
+                <![CDATA[Completed]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Meeting_Completed -->
-        <test-method status="PASS" signature="AMTest()[pri:0, instance:HardCodedSenario.Schedule_Meeting_Test@1e88b3c]" name="AMTest" is-config="true" duration-ms="0" started-at="2020-06-01T13:44:23Z" finished-at="2020-06-01T13:44:23Z">
+        </test-method> <!-- Incident_Invstegation_Review_Plant_HEAD -->
+        <test-method status="PASS" signature="AMTest()[pri:0, instance:com.datadriven.test.Incident_Invstegation_Review_Plant_HEAD_Test@1fdc050]" name="AMTest" is-config="true" duration-ms="6057" started-at="2020-06-10T18:32:16Z" finished-at="2020-06-10T18:32:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AMTest -->
-      </class> <!-- HardCodedSenario.Schedule_Meeting_Test -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.datadriven.test.Incident_Invstegation_Review_Plant_HEAD_Test -->
+    </test> <!-- GMR Web application Test : Incident with proper flow -->
+  </suite> <!-- GMR Web application Test Automation Test suite -->
 </testng-results>
