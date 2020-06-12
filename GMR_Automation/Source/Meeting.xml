@@ -4,11 +4,11 @@
 <suite thread-count="5" parallel="tests" name="GMR Web application Test Automation Test suite">
   <test name="GMR Web application Test : EHS Observation with proper flow" preserve-order= "true">
     <classes>
-<!--       <class name="com.datadriven.test.EHS_Observation_Test"/> -->
-<!--       <class name="com.datadriven.test.EHS_Observation_Review_Test"/> -->
-      <class name="com.datadriven.test.EHS_Observation_CAPAPerson_Test"/>
-      <class name="com.datadriven.test.EHS_Observation_CAPA_Review_Test"/>
-      
+<!--       <class name="com.datadriven.test.Meeting_Employee_Test"/> -->
+<!--       <class name="com.datadriven.test.Meeting_Completed_Test"/> -->
+<!-- 	  <class name="com.datadriven.test.Meeting_Employee_Test"/> -->
+<!--       <class name="com.datadriven.test.Meeting_Postpone_Test"/> -->
+	  <class name="com.datadriven.test.Meeting_cancel_Test"/>      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

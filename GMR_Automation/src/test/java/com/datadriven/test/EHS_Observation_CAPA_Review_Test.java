@@ -70,7 +70,7 @@ public class EHS_Observation_CAPA_Review_Test {
 		    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
 		}	
 		driver.navigate().refresh();
-		Thread.sleep(30000);
+		Thread.sleep(60000);
 		//code to do something on new window
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		//scroll down
