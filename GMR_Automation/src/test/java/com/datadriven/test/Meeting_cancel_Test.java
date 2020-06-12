@@ -14,10 +14,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.test.utility.EHSObservation_Util;
+import com.test.utility.Meeting_Util;
 
-public class EHS_Observation_CAPAPerson_Test {
-	
+public class Meeting_cancel_Test {
 	WebDriver driver;
 	
 	@BeforeMethod
@@ -36,72 +35,74 @@ public class EHS_Observation_CAPAPerson_Test {
 	public Iterator<Object[]> GetTestData()
 	{
 		
-		ArrayList<Object[]>testdata=EHSObservation_Util.GetDataFromExcel();
+		ArrayList<Object[]>testdata=Meeting_Util.GetDataFromExcel();
 		return testdata.iterator();
 		
 		
 	}
 	
 	@Test(dataProvider="GetTestData",enabled=true)
-	public void EHS_Observation_Review(String UserName,String Password,String Location,String ExactLocation,String ResponsibleFunction,String Agency,String ObservationCategory,
-			String NoOfPersons,String ObservationSeverity,String ObservationType,String ObservationDetail,String Attachments1,String Attachments2,String Attachments3,String 
-			Attachments4,String ActiontobeTaken,String Responsibility,String Priority,String SectionHeadUserName,String SectionHeadPassword,String Clickonthat,String 
-			AuthorizationactionSectionHead,String CommentSectionHead,String CAPAPersonUserName,String CAPAPersonPassword,String ClickonAction,String CAPAPersonAuthorizationAction,
-			String capapersonComment,String CAPAReviewDHUsername,String CAPAReviewDHPassword,String CAPAReviewDHAuthorizationaction,String CAPAReviewDHComment) throws InterruptedException, AWTException
+	public void Meeting_cancel(String UserName,String Password,String url,String MeetingType,String Function,String MeetingTopic,String DurationHH,String DurationMM,
+			String MeetingHost,String Meetingvenue,String Meetingagenda,String Employeename,String Email,String Attach1,String Attach2,String AuthorizationactionCompleted,
+			String Comment,String AuthorizationactionPostpone,String Postponecomment,String Authorizationactioncancelled,String cancelledcomment) throws InterruptedException, AWTException
 	{
 		//Enter User name 
-		driver.findElement(By.id("txtUserName")).sendKeys(CAPAPersonUserName);
+		driver.findElement(By.id("txtUserName")).sendKeys(UserName);
 		Thread.sleep(1000);
 		//Enter Password
-		driver.findElement(By.id("txtPassword")).sendKeys(CAPAPersonPassword);
+		driver.findElement(By.id("txtPassword")).sendKeys(Password);
 		Thread.sleep(1000);
 		//Click on submit
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		Thread.sleep(20000);
+		Thread.sleep(10000);
+		
+		//open Meeting Url
+		driver.get(url);
+		Thread.sleep(30000);
+	
+		//click on side bar
+		driver.findElement(By.xpath("//a[@class='nav-link toggleMenubar']")).click();
+		Thread.sleep(4000);
 
-		//Click on observation 
-		driver.findElement(By.partialLinkText(ClickonAction)).click();
-		Thread.sleep(20000);
+		//Schedule Meeting
+		driver.findElement(By.xpath("//ul[@class='site-menu-sub active-sub']//span[@class='site-menu-title'][contains(text(),'My Meeting')]")).click();
+		Thread.sleep(30000);
+		
+		//Click on Edit Meeting 
+		driver.findElement(By.xpath("//tr[1]//a[@title='Edit']")).click();
+		Thread.sleep(25000);
 		
 		//New window handle
 		String parentHandle = driver.getWindowHandle(); // get the current window handle
 		
 		for (String winHandle : driver.getWindowHandles()) {
-		    driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
+		driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle (that's your newly opened window)
 		}	
-		driver.navigate().refresh();
-		Thread.sleep(60000);
 		//code to do something on new window
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		//scroll down
 		jse.executeScript("scroll(0, 250);");
-		
+		Thread.sleep(2000);
+
 		//Authorization Action
 		Select Authorizationaction = new Select(driver.findElement(By.id("ddlAction")));
-		Authorizationaction.selectByVisibleText(CAPAPersonAuthorizationAction);
+		Authorizationaction.selectByVisibleText(Authorizationactioncancelled);
 		Thread.sleep(5000);
-	
+			 
 		//Comment
-		driver.findElement(By.id("txtComment")).sendKeys(capapersonComment);
-		Thread.sleep(3000);
-				
-		//Attachments
-		driver.findElement(By.xpath("//input[@type='file']")).sendKeys(Attachments1);
-		Thread.sleep(3000);
+		driver.findElement(By.id("txtComment")).sendKeys(cancelledcomment);
+		Thread.sleep(1000);
 			
-		//click on upload all 
-		driver.findElement(By.xpath("//button[@name='btnUploadAll']")).click();
-		Thread.sleep(8000);
-				
-		//Submit
-		driver.findElement(By.xpath("//button[@class='btn btn-success w-md waves-light m-b-5 ng-binding ng-scope waves-effect']")).click();
-		Thread.sleep(10000);
+		//Submit 
+		driver.findElement(By.xpath("//button[@class='btn btn-success waves-effect w-md waves-light m-b-5']")).click();
+		Thread.sleep(5000);
+
 		
 		driver.close(); // close newly opened window when done with it
 		driver.switchTo().window(parentHandle); // switch back to the original window
-
+		
 	}
-	
+
 	@AfterMethod
 	public void AMTest() throws InterruptedException
 	{
